@@ -1,0 +1,13 @@
+name: Production Deploy
+
+on:
+    workflow_run:
+        workflows: [Production Test]
+        types: 
+            - completed 
+        branches:
+            - main
+
+jobs:
+    deploy_python_code:
+        uses: ./.github/workflows/lambda-deploy.yml

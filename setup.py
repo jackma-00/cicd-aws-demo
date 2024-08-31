@@ -11,6 +11,7 @@ setup(
         "fastapi==0.100.0",
         "uvicorn==0.22.0",
         "python-multipart==0.0.6",
+        "mangum==0.17.0",
     ],
     extras_require={
         "dev": [

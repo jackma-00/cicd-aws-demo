@@ -1,7 +1,4 @@
-IMAGE ?= sep-image
-IMAGE_TAG ?= latest
-
-.PHONY: venv install format lint test local_launch build run
+.PHONY: venv install format lint test local_launch
 
 venv:
 	python3 -m venv .venv
@@ -26,13 +23,4 @@ test: venv install
 
 local_launch: venv install
 	. .venv/bin/activate && \
-	uvicorn --port 8080 --reload src.main:app 
-
-build:
-	docker build --tag $(IMAGE):$(IMAGE_TAG) .
-
-push:
-	docker push $(IMAGE):$(IMAGE_TAG)
-
-run:
-	docker run -p 8080:8080 --rm $(IMAGE):$(IMAGE_TAG)
+	uvicorn --port 8080 --reload src.main:app
