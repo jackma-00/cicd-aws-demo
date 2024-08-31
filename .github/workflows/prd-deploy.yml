@@ -10,7 +10,7 @@ on:
 
 env:
   AWS_REGION: eu-north-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: 403097528197.dkr.ecr.eu-north-1.amazonaws.com/cicd-aws-ecs-demo
+  ECR_REPOSITORY: cicd-aws-ecs-demo
 
 permissions:
   contents: read
