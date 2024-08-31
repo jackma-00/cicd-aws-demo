@@ -1,0 +1,19 @@
+# This workflow will run tests before merging a pull request to the production branch
+
+name: Production Test
+
+# We want to test when a pull request is:
+# - opened: pull request is created
+# - synchronize: at any new modification on the head branch of the PR
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
+  push: # We also want to test when the PR is merged to subsequently run the deployment workflow
+    branches:
+      - main
+
+jobs:
+  test_python_code:
+    uses: ./.github/workflows/python-test.yml 
