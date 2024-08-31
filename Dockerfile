@@ -1,11 +1,9 @@
-FROM python:3.10-slim-bullseye
+FROM public.ecr.aws/lambda/python:3.10
 
-WORKDIR /code
-
-COPY ./setup.py /code/setup.py
+COPY ./setup.py .
  
-RUN pip install --no-cache-dir --upgrade .
+RUN pip install --no-cache-dir --upgrade --target "${LAMBDA_TASK_ROOT}" .
 
-COPY ./src /code/src
+COPY ./src "${LAMBDA_TASK_ROOT}"/src
 
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["src.lambda_function.lambda_handler"]
