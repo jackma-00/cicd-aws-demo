@@ -9,7 +9,7 @@ on:
             - main
 
 env:
-  AWS_REGION: eu-north-1                   # set this to your preferred AWS region, e.g. us-west-1
+  AWS_REGION: eu-north-1
   ECR_REPOSITORY: cicd-aws-demo
 
 permissions:
@@ -45,6 +45,19 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
+        cd assets/
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+    - name: Deploy to Lambda
+      id: deploy-lambda
+      env:
+        IMAGE_TAG: ${{ steps.build-image.outputs.image }}
+      run: |
+        # Install Dependencies
+        make install
+        # CDK Bootstrap
+        make bootstrap
+        # Deploy the Lambda
+        make deploy 

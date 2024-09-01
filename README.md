@@ -1,49 +1,14 @@
-# Swedish Event Planning Business Project
+# Welcome to your CDK TypeScript project
 
-This repository contains the backend of the SEP project. 
+This is a blank project for CDK development with TypeScript.
 
-## Requirements
+The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
-* Docker engine ([Installation](https://docs.docker.com/engine/install/))
-* Python3.10.12 with `pip`
+## Useful commands
 
-## Quickstart
-
-### Local Environment
-
-Initialize Python environment running the make target
-
-```shell
-make venv
-. .venv/bin/activate
-```
-
-Install now the Python project's dependencies running the make target
-```shell
-make install
-```
-
-To run the application in your local environment call the make target
-```shell
-make local_launch
-```
-
-### Docker
-
-To run the application with Docker call the following make targets in subsequent order:
-```shell
-make build
-make run 
-```
-
-### Test The Application
-
-To test the application call the following make targets in subsequent order:
-```shell
-make format
-make lint
-make test
-```
-Once all the tests succeed you can run the application both in your local environment or in Docker and test with:
-* Swagger: visit the URL http://127.0.0.1:8080/docs
-* Postman: find [postman collection](https://github.com/jackma-00/sep-project/blob/main/SEP%20project.postman_collection.json)
+* `npm run build`   compile typescript to js
+* `npm run watch`   watch for changes and compile
+* `npm run test`    perform the jest unit tests
+* `npx cdk deploy`  deploy this stack to your default AWS account/region
+* `npx cdk diff`    compare deployed stack with current state
+* `npx cdk synth`   emits the synthesized CloudFormation template
