@@ -9,18 +9,6 @@ from src.utils.auth import auth_customer_service, auth_customer_manager
 
 router = APIRouter()
 
-# Configure CORS
-origins = [
-    "*",  # Allow all origins for simplicity; adjust as needed
-]
-
-router.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 print("Starting HTTP RESTful API Server ...")
 
