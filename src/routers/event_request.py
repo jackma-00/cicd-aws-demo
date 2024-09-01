@@ -11,6 +11,9 @@ router = APIRouter()
 
 print("Starting HTTP RESTful API Server ...")
 
+@router.get("/hello_well/")
+async def hello_well():
+    return {"message": "Hello, Well!"}
 
 @router.post("/event_requests/")
 async def new_event_request(
