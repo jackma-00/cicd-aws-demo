@@ -1,26 +1,15 @@
-.PHONY: venv install format lint test local_launch
+.PHONY: install bootstrap synth deploy 
 
-venv:
-	python3 -m venv .venv
+install:
+	npm install
 
-install: setup.py
-	. ./.venv/bin/activate && \
-	pip install --upgrade pip &&\
-	pip install .[dev]
+bootstrap: 
+	cdk bootstrap
 
-format:
-	. ./.venv/bin/activate && \
-	black .
+synth: 
+	cdk synth
 
-lint: venv install
-	. ./.venv/bin/activate && \
-	black --check . && \
-	pylint -j 0 --disable=C,W ./src/
+deploy: 
+	cdk deploy
 
-test: venv install
-	. ./.venv/bin/activate && \
-	pytest .
-
-local_launch: venv install
-	. .venv/bin/activate && \
-	uvicorn --port 8080 --reload src.main:app
+all: install bootstrap synth deploy 
