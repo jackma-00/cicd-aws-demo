@@ -24,7 +24,7 @@ async def new_event_request(
 
 @router.get("/event_requests")
 async def get_event_requests(
-    authorized: Annotated[bool, Depends(auth_customer_manager)]
+    # authorized: Annotated[bool, Depends(auth_customer_manager)]
 ):
     return {"event_requests": dataManager.get_event_requests()}
 
