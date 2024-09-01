@@ -28,14 +28,6 @@ To run the application in your local environment call the make target
 make local_launch
 ```
 
-### Docker
-
-To run the application with Docker call the following make targets in subsequent order:
-```shell
-make build
-make run 
-```
-
 ### Test The Application
 
 To test the application call the following make targets in subsequent order:
@@ -44,6 +36,6 @@ make format
 make lint
 make test
 ```
-Once all the tests succeed you can run the application both in your local environment or in Docker and test with:
+Once all the tests succeed you can run the application in your local environment:
 * Swagger: visit the URL http://127.0.0.1:8080/docs
 * Postman: find [postman collection](https://github.com/jackma-00/sep-project/blob/main/SEP%20project.postman_collection.json)
