@@ -56,8 +56,8 @@ jobs:
         IMAGE_TAG: ${{ steps.build-image.outputs.image }}
       run: |
         # Install Dependencies
-        make install
+        npm install
         # CDK Bootstrap
-        make bootstrap
+        npx cdk bootstrap
         # Deploy the Lambda
-        make deploy 
+        npx cdk deploy
