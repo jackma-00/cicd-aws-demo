@@ -9,10 +9,11 @@ from src.utils.auth import auth_customer_service, auth_customer_manager
 
 router = APIRouter()
 
+
 print("Starting HTTP RESTful API Server ...")
 
 
-@router.get("/hello_well/")
+@router.get("/hello_well")
 async def hello_well():
     return {"message": "Hello, Well!"}
 

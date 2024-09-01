@@ -5,18 +5,6 @@ from src.routers import event_request, event_task, staff_request, financial_requ
 
 app = FastAPI()
 
-# Configure CORS
-origins = [
-    "*",  # Allow all origins for simplicity; adjust as needed
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 app.include_router(event_request.router)
 app.include_router(event_task.router)
