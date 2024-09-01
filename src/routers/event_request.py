@@ -15,7 +15,7 @@ print("Starting HTTP RESTful API Server ...")
 @router.post("/event_requests/")
 async def new_event_request(
     newRequest: EventRequest,
-    authorized: Annotated[bool, Depends(auth_customer_service)],
+    # authorized: Annotated[bool, Depends(auth_customer_service)],
 ):
     dataManager.add_event_request(newRequest)
     return {"record_number": newRequest.record_number}
