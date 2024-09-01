@@ -28,6 +28,7 @@ app.include_router(financial_request.router)
 async def root():
     return {"message": "Welcome to SEP Business !"}
 
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}
