@@ -12,7 +12,7 @@ router = APIRouter()
 print("Starting HTTP RESTful API Server ...")
 
 
-@router.post("/staff_requests/")
+@router.post("/staff_requests")
 async def new_staff_request(
     newRequest: StaffRequest,
     authorized: Annotated[bool, Depends(auth_production_manager)],
@@ -21,12 +21,12 @@ async def new_staff_request(
     return {"add": "ok"}
 
 
-@router.get("/staff_requests/")
+@router.get("/staff_requests")
 async def get_staff_requests(authorized: Annotated[bool, Depends(auth_hr_manager)]):
     return {"staff_requests": dataManager.get_staff_requests()}
 
 
-@router.put("/staff_requests/")
+@router.put("/staff_requests")
 async def discard_event_request(
     oldRequest: StaffRequest, authorized: Annotated[bool, Depends(auth_hr_manager)]
 ):
