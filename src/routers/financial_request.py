@@ -12,7 +12,7 @@ router = APIRouter()
 print("Starting HTTP RESTful API Server ...")
 
 
-@router.post("/financial_requests/")
+@router.post("/financial_requests")
 async def new_financial_request(
     newRequest: FinancialRequest,
     authorized: Annotated[bool, Depends(auth_production_manager)],
@@ -21,7 +21,7 @@ async def new_financial_request(
     return {"project_reference": newRequest.project_reference}
 
 
-@router.get("/financial_requests/")
+@router.get("/financial_requests")
 async def get_financial_requests(
     authorized: Annotated[bool, Depends(auth_financial_manager)]
 ):

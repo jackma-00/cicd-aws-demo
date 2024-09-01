@@ -12,7 +12,7 @@ router = APIRouter()
 print("Starting HTTP RESTful API Server ...")
 
 
-@router.post("/tasks/")
+@router.post("/tasks")
 async def new_event_task(
     newTask: EventTask, authorized: Annotated[bool, Depends(auth_production_manager)]
 ):
@@ -20,7 +20,7 @@ async def new_event_task(
     return {"project_reference": newTask.project_reference}
 
 
-@router.get("/tasks/")
+@router.get("/tasks")
 async def get_all_tasks(authorized: Annotated[bool, Depends(auth_production_manager)]):
     return {"all_tasks": dataManager.get_all_tasks()}
 

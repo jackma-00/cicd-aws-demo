@@ -13,12 +13,7 @@ router = APIRouter()
 print("Starting HTTP RESTful API Server ...")
 
 
-@router.get("/hello_well")
-async def hello_well():
-    return {"message": "Hello, Well!"}
-
-
-@router.post("/event_requests/")
+@router.post("/event_requests")
 async def new_event_request(
     newRequest: EventRequest,
     # authorized: Annotated[bool, Depends(auth_customer_service)],
@@ -27,7 +22,7 @@ async def new_event_request(
     return {"record_number": newRequest.record_number}
 
 
-@router.get("/event_requests/")
+@router.get("/event_requests")
 async def get_event_requests(
     authorized: Annotated[bool, Depends(auth_customer_manager)]
 ):
