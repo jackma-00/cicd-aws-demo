@@ -33,6 +33,8 @@ jobs:
           make lint
 
       - name: Test with pytest
+        env:
+          SHA: ${{ github.sha }}
         run: |
           cd assets/
           make test
