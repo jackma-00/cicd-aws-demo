@@ -46,7 +46,7 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         cd assets/
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . -e   SHA=$IMAGE_TAG
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . --build-arg SHA=$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$IMAGE_TAG" >> $GITHUB_OUTPUT
 

@@ -2,7 +2,7 @@ FROM public.ecr.aws/lambda/python:3.10
 
 ARG SHA
 
-env SHA=$SHA
+ENV SHA=${SHA}
 
 COPY ./setup.py .
  
