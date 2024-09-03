@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 from src.routers import event_request, event_task, staff_request, financial_request
 
@@ -24,4 +25,6 @@ async def health():
 
 @app.get("/hello")
 async def hello():
-    return {"message": "Hello World"}
+    # obtaib the environment variable SHA
+    sha = os.getenv("SHA")
+    return {"message": "Hello from commit " + sha}
