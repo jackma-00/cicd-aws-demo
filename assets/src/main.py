@@ -27,4 +27,5 @@ async def health():
 async def hello():
     # obtaib the environment variable SHA
     sha = os.getenv("SHA")
+    
     return {"message": "Hello from commit " + sha}
