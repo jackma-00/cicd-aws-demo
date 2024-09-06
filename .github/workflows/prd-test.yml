@@ -10,6 +10,8 @@ on:
     types: [opened, synchronize]
     branches:
       - main
+    paths-ignore: # don't rebuild if only infrastructure has changed
+      - "**.ts"
   push: # We also want to test when the PR is merged to subsequently run the deployment workflow
     branches:
       - main
