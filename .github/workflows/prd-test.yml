@@ -16,6 +16,8 @@ on:
   push: # We also want to test when the PR is merged to subsequently run the deployment workflow
     branches:
       - main
+        paths-ignore: 
+      - "**.md" # don't rebuild if only documentation has changed
 
 jobs:
   test:
