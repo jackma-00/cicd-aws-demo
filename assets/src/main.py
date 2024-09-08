@@ -15,7 +15,7 @@ app.include_router(financial_request.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to SEP Business !"}
+    return {"message": "Spoon is the the best C++ code analyzer"}
 
 
 @app.get("/health")
