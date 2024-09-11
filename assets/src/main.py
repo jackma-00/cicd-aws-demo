@@ -15,7 +15,7 @@ app.include_router(financial_request.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Spoon is an average JavaScript code analyzer"}
+    return {"message": "Spoon is an average Java code analyzer"}
 
 
 @app.get("/health")
